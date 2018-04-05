@@ -13,6 +13,10 @@ class WebViewController: UIViewController {
     @IBOutlet var webView: UIWebView!
     @IBOutlet weak var loading: UIActivityIndicatorView!
     
+    @IBAction func close(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     var url: String!
     
     override func viewDidLoad() {
@@ -28,11 +32,30 @@ class WebViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    @IBAction func runJS(_ sender: UIBarButtonItem) {
+        webView.stringByEvaluatingJavaScript(from: "alert('Rodando JS na WebView')")
+    }
+    
+    
+    
+    
+    
 
 }
 
 extension WebViewController: UIWebViewDelegate{
     func webViewDidFinishLoad(_ webView: UIWebView) {
         loading.stopAnimating()
+    }
+    
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        
+        print(request.url!.absoluteString)
+        
+        if request.url!.absoluteString.range(of: "ads") != nil{
+            return false
+        }
+        
+        return true
     }
 }

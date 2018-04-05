@@ -310,11 +310,23 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ijK-sz-613">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem systemItem="rewind" id="s8j-nh-zya"/>
+                                    <barButtonItem systemItem="rewind" id="s8j-nh-zya">
+                                        <connections>
+                                            <action selector="goBack" destination="6Xu-0N-hA8" id="dfd-fN-3JL"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="nxj-Yc-gmb"/>
-                                    <barButtonItem title="Executar JS" id="tZQ-DI-PRV"/>
+                                    <barButtonItem title="Executar JS" id="tZQ-DI-PRV">
+                                        <connections>
+                                            <action selector="runJS:" destination="Ypt-c0-KZf" id="vXw-s0-mUj"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="9Vb-Th-I5d"/>
-                                    <barButtonItem systemItem="fastForward" id="5EA-n8-jQk"/>
+                                    <barButtonItem systemItem="fastForward" id="5EA-n8-jQk">
+                                        <connections>
+                                            <action selector="goForward" destination="6Xu-0N-hA8" id="WTT-I7-waH"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="LME-Cy-2FM">
@@ -328,6 +340,9 @@
                                     <constraint firstAttribute="width" constant="80" id="McI-6z-7XC"/>
                                 </constraints>
                                 <state key="normal" title="Fechar"/>
+                                <connections>
+                                    <action selector="close:" destination="Ypt-c0-KZf" eventType="touchUpInside" id="Ul9-FJ-tSd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -353,7 +368,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4wh-BG-b6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2842.5" y="42.25352112676056"/>
+            <point key="canvasLocation" x="2428" y="199"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0cU-x6-MzN">
